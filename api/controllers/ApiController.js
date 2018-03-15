@@ -41,24 +41,20 @@ exports.getFile = function (req, res) {
 exports.listDaemons = function (req, res) {
   Daemon.find({}, function (err, Daemon) {
     if (err)
-      res.send(err);
+      res.json({status:false, message: "An error has occured"});
     else
-      res.json(Daemon)
+      res.json({status: true, message: "OK", data: Daemon});
   });
   //res.json({func: 'listDaemons'});
 };
 
 exports.putDaemon = function (req, res) {
-  var tmp = new Daemon({
-    hostname:"titi",
-    ip: "13.37.13.37",
-    storageLeft: 512
-  });
+  var tmp = new Daemon(req.body);
   tmp.save(function (err) {
     if (err)
-      res.json(err);
+      res.json({status: false, message: "An error has occured"});
     else
-      res.json({saved: tmp});
+      res.json({status: true, message: "OK"});
   });
 };
 

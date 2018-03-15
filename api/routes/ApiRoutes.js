@@ -7,14 +7,14 @@ module.exports = function(app) {
     .get(api.listFiles)
 		.put(api.putFile);
 
-	app.route('/files/:fileId')
-		.get(api.getFile);
+	// app.route('/files/:fileId')
+	// 	.get(api.getFile);
 
   app.route('/daemons')
     .get(api.listDaemons)
     .put(api.putDaemon);
 
-  app.route('/daemons/:daemonId')
-		.get(api.getFile)
+  // app.route('/daemons/:daemonId')
+		// .get(api.getFile)
 
 };
