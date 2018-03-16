@@ -17,8 +17,8 @@ var DaemonSchema = new Schema({
     default: 0
   },
   timeStamp: {
-    type: Date,
-    default: Date.now()
+    type: Number,
+    default: Math.floor(Date.now() / 1000)
   }
 });
 
