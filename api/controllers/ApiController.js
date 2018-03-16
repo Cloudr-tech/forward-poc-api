@@ -7,30 +7,22 @@ var File = mongoose.model('File');
 exports.listFiles = function (req, res) {
   File.find({})
     .populate("partOne").populate("partTwo")
-    .exec(function (err, File) {
+    .exec(function (err, files) {
     if (err)
-      res.send(err);
+      res.send({status: false, message: "An error has occured"});
     else {
-      //console.log(File.partOne[0].ip);
-      res.json(File);
+      res.json({status: true, message: "OK", data: files});
     }
   });
 };
 
 exports.putFile = function (req, res) {
-  Daemon.findOne({}, function (err, Daemon) {
-    var tmp = new File({
-      name: "toto",
-      size: 10,
-      partOne: [Daemon._id],
-      partTwo: [Daemon._id]
-    });
-    tmp.save(function (err) {
-      if (err)
-        res.json(err);
-      else
-        res.json({saved: tmp});
-    });
+  var tmp = new File(req.body);
+  tmp.save(function (err) {
+    if (err)
+      res.json({status:false, message: "An error has occured"});
+    else
+      res.json({status: true, message: "OK", data: tmp});
   })
 };
 
@@ -54,8 +46,28 @@ exports.putDaemon = function (req, res) {
     if (err)
       res.json({status: false, message: "An error has occured"});
     else
-      res.json({status: true, message: "OK"});
+      res.json({status: true, message: "OK", data: tmp});
   });
+};
+
+exports.updateDaemon = function (req, res) {
+  req.body.timeStamp = Math.floor(Date.now() / 1000);
+  if (req.body.ip) {
+    Daemon.findOneAndUpdate({ip: req.body.ip}, req.body, {upsert: true}, function (err) {
+      if (err)
+        res.json({status: false, message: "An error has occured"});
+      else {
+        Daemon.findOne({ip: req.body}, function (err, daemon) {
+          if (err)
+            res.json({status: false, message: "An error has occured"});
+          else
+            res.json({status: true, message: "OK", data: daemon});
+        })
+      }
+    });
+  } else {
+    res.json({status: false, message: "An error has occured"});
+  }
 };
 
 exports.getDaemon = function (req, res) {

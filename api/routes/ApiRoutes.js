@@ -12,7 +12,8 @@ module.exports = function(app) {
 
   app.route('/daemons')
     .get(api.listDaemons)
-    .put(api.putDaemon);
+    .put(api.putDaemon)
+    .patch(api.updateDaemon);
 
   // app.route('/daemons/:daemonId')
 		// .get(api.getFile)
