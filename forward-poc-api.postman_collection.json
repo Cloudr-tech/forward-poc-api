@@ -1,0 +1,168 @@
+{
+	"info": {
+		"name": "forward-poc-api",
+		"_postman_id": "8173540d-f75a-4316-879e-91b13db97d1f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "daemons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/daemons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"daemons"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "daemons",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hostname\": \"toto\",\n    \"ip\": \"13.37.13.40\",\n    \"storageLeft\": 512\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/daemons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"daemons"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "daemons",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hostname\": \"titi\",\n    \"ip\": \"13.37.13.39\",\n    \"storageLeft\": 5000000\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/daemons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"daemons"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "files",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hostname\": \"tata\",\n    \"ip\": \"13.37.13.39\",\n    \"storageLeft\": 1024\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/files",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"files"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "files",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"test.js\",\n\t\"size\": 10,\n\t\"type\": \"js\",\n\t\"partOne\": [\"5aacfb24043a8413f9095f03\"],\n\t\"partTwo\": [\"5aacfb24043a8413f9095f03\"]\n}\n\n"
+				},
+				"url": {
+					"raw": "http://localhost:8080/files",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"files"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "reset",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/reset",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reset"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
