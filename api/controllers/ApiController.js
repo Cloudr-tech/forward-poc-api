@@ -70,6 +70,21 @@ exports.updateDaemon = function (req, res) {
   }
 };
 
+exports.resetDb = function(req, res) {
+  Daemon.remove({}, function (err) {
+    if (err)
+      res.json({status: false, message: "An error has occured"});
+    else {
+      File.remove({}, function(err) {
+        if (err)
+          res.json({status: false, message: "An error has occured"});
+        else
+          res.json({status: true, message: "OK", data: null})
+      })
+    }
+  })
+}
+
 exports.getDaemon = function (req, res) {
   res.json({func: 'getDaemon'});
 };

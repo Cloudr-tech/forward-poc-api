@@ -18,4 +18,6 @@ module.exports = function(app) {
   // app.route('/daemons/:daemonId')
 		// .get(api.getFile)
 
+  app.route('/reset')
+    .delete(api.resetDb);
 };
