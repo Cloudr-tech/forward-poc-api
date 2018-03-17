@@ -16,6 +16,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 routes(app);
+app.use(function(req, res) {
+  res.status(404).json({status: false, message: req.originalUrl + ' not found', data: null})
+});
 app.listen(port);
 
 console.log('REST API started on: ' + port);
