@@ -57,7 +57,7 @@ exports.updateDaemon = function (req, res) {
       if (err)
         res.json({status: false, message: "An error has occured"});
       else {
-        Daemon.findOne({ip: req.body}, function (err, daemon) {
+        Daemon.findOne({ip: req.body.ip}, function (err, daemon) {
           if (err)
             res.json({status: false, message: "An error has occured"});
           else
