@@ -1,8 +1,7 @@
 {
 	"info": {
+		"_postman_id": "5c335dbf-6fb9-43f5-961c-e2ddd1b69784",
 		"name": "forward-poc-api",
-		"_postman_id": "8173540d-f75a-4316-879e-91b13db97d1f",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,19 +10,22 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:8080/daemons",
+					"raw": "http://api.cloudr.tech/daemons",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"api",
+						"cloudr",
+						"tech"
 					],
-					"port": "8080",
 					"path": [
 						"daemons"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -42,17 +44,17 @@
 					"raw": "{\n\t\"hostname\": \"toto\",\n    \"ip\": \"13.37.13.40\",\n    \"storageLeft\": 512\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/daemons",
+					"raw": "http://api.cloudr.tech/daemons",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"api",
+						"cloudr",
+						"tech"
 					],
-					"port": "8080",
 					"path": [
 						"daemons"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -71,17 +73,17 @@
 					"raw": "{\n\t\"hostname\": \"titi\",\n    \"ip\": \"13.37.13.39\",\n    \"storageLeft\": 5000000\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/daemons",
+					"raw": "http://api.cloudr.tech/daemons",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"api",
+						"cloudr",
+						"tech"
 					],
-					"port": "8080",
 					"path": [
 						"daemons"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -100,17 +102,17 @@
 					"raw": "{\n\t\"hostname\": \"tata\",\n    \"ip\": \"13.37.13.39\",\n    \"storageLeft\": 1024\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/files",
+					"raw": "http://api.cloudr.tech/files",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"api",
+						"cloudr",
+						"tech"
 					],
-					"port": "8080",
 					"path": [
 						"files"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -126,20 +128,20 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"test.js\",\n\t\"size\": 10,\n\t\"type\": \"js\",\n\t\"partOne\": [\"5aacfb24043a8413f9095f03\"],\n\t\"partTwo\": [\"5aacfb24043a8413f9095f03\"]\n}\n\n"
+					"raw": "{\n\t\"name\": \"test.js\",\n\t\"size\": 10,\n\t\"type\": \"js\",\n\t\"uid\": \"***************\",\n\t\"partOne\": [\"5aacfb24043a8413f9095f03\"],\n\t\"partTwo\": [\"5aacfb24043a8413f9095f03\"]\n}\n\n"
 				},
 				"url": {
-					"raw": "http://localhost:8080/files",
+					"raw": "http://api.cloudr.tech/files",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"api",
+						"cloudr",
+						"tech"
 					],
-					"port": "8080",
 					"path": [
 						"files"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		},
@@ -148,19 +150,22 @@
 			"request": {
 				"method": "DELETE",
 				"header": [],
-				"body": {},
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:8080/reset",
+					"raw": "http://api.cloudr.tech/reset",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"api",
+						"cloudr",
+						"tech"
 					],
-					"port": "8080",
 					"path": [
 						"reset"
 					]
-				},
-				"description": ""
+				}
 			},
 			"response": []
 		}
