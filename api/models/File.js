@@ -16,13 +16,17 @@ var FileSchema = new Schema({
     type: String,
     default: ""
   },
+  uid: {
+    type: String,
+    default: ""
+  },
   partOne: {
     type: [{type: Schema.Types.ObjectId, ref: "Daemon"}],
-    default:[],
+    default:[]
   },
   partTwo: {
     type: [{type: Schema.Types.ObjectId, ref: "Daemon"}],
-    default:[],
+    default:[]
   }
 });
 
