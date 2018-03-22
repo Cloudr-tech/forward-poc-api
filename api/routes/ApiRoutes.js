@@ -5,7 +5,8 @@ module.exports = function(app) {
   // api Routes
   app.route('/files')
     .get(api.listFiles)
-		.put(api.putFile);
+	.put(api.putFile)
+    .delete(api.rmFile);
 
 	// app.route('/files/:fileId')
 	// 	.get(api.getFile);

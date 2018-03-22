@@ -18,7 +18,8 @@ var FileSchema = new Schema({
   },
   uid: {
     type: String,
-    default: ""
+    default: "",
+    unique: true
   },
   partOne: {
     type: [{type: Schema.Types.ObjectId, ref: "Daemon"}],

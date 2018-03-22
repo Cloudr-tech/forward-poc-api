@@ -6,7 +6,7 @@ var File = mongoose.model('File');
 
 exports.listFiles = function (req, res) {
   File.find({})
-    .populate("partOne").populate("partTwo")
+    //.populate("partOne").populate("partTwo")
     .exec(function (err, files) {
     if (err)
       res.send({status: false, message: "An error has occured"});
@@ -28,6 +28,16 @@ exports.putFile = function (req, res) {
 
 exports.getFile = function (req, res) {
   res.json({func: 'getFiles'});
+};
+
+exports.rmFile = function (req, res) {
+  File.remove({uid: req.body.uid}, function (err) {
+    if (err) {
+      res.json({status:false, message: "An error has occured"});
+    } else {
+      res.json({status: true, message: "OK", data: null});
+    }
+  });
 };
 
 exports.listDaemons = function (req, res) {
