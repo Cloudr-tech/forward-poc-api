@@ -31,13 +31,17 @@ exports.getFile = function (req, res) {
 };
 
 exports.rmFile = function (req, res) {
-  File.remove({uid: req.body.uid}, function (err) {
-    if (err) {
-      res.json({status:false, message: "An error has occured"});
-    } else {
-      res.json({status: true, message: "OK", data: null});
-    }
-  });
+  if (req.body.uid) {
+      File.remove({uid: req.body.uid}, function (err) {
+          if (err) {
+              res.json({status: false, message: "File not found"});
+          } else {
+              res.json({status: true, message: "OK", data: null});
+          }
+      });
+  } else {
+    res.json({status: false, message: "An error has occured"});
+  }
 };
 
 exports.listDaemons = function (req, res) {
